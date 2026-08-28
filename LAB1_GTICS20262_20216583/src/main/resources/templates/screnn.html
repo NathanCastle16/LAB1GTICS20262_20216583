@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Equipo Tecnologico</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <div class="topbar">
+            <h1>Registro de Equipo Tecnológico</h1>
+    </div>
+
+    <form th:action="@{/orders}" th:object="${order}" method="post">
+        <div class="grid two">
+            <div>
+                <label>Nombre del cliente</label>
+                <input type="text" th:field="*{customerName}" placeholder="Lewis Rengifo">
+                <small class="error" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></small>
+            </div>
+            <div>
+                <label>Tipo de Equipo</label>
+                <select th:field="*{serviceType}">
+                    <option value="">PC</option>
+                    <option value="PARA_LLEVAR">Laptop</option>
+                    <option value="EN_MESA">Otro</option>
+                </select>
+                <small class="error" th:if="${#fields.hasErrors('serviceType')}" th:errors="*{serviceType}"></small>
+            </div>
+
+            <div>
+                <label>Código de Activo</label>
+                <input type="text" th:field="*{customerName}">
+                <small class="error" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></small>
+            </div>
+
+            <div>
+                <label>Fecha de adquisión</label>
+                <input type="text" th:field="*{customerName}">
+                <small class="error" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></small>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn primary" type="submit">Registrar pedido</button>
+        </div>
+
+        <div class="actions">
+            <button class="btn primary" type="submit">Ver listado de equipos</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
